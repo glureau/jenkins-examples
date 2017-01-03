@@ -1,9 +1,13 @@
-node() {
-	stage ('Checkout') {
-		checkout scm
+node {
+	stage ('Pre') {
+		echo 'will sleep...'
 	}
+}
 
-	stage ('DoSomething') {
-		sh 'pwd'
+sleep 600
+
+stage ('Post') {
+	node {
+		echo 'Done'
 	}
 }
